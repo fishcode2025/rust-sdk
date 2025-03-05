@@ -1,10 +1,10 @@
 [package]
-name = "mcp-core"
-license.workspace = true
+name = "mcp-core-fishcode2025"
 version.workspace = true
+license.workspace = true
 edition.workspace = true
 repository.workspace = true
-description = "Core types for Model Context Protocol"
+description = "Core types for the Model Context Protocol SDK"
 
 
 [dependencies]

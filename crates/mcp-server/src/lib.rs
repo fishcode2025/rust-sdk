@@ -4,7 +4,9 @@ use std::{
 };
 
 use futures::{Future, Stream};
-use mcp_core::protocol::{JsonRpcError, JsonRpcMessage, JsonRpcRequest, JsonRpcResponse};
+use mcp_core_fishcode2025::protocol::{
+    JsonRpcError, JsonRpcMessage, JsonRpcRequest, JsonRpcResponse,
+};
 use pin_project::pin_project;
 use tokio::io::{AsyncBufReadExt, AsyncRead, AsyncWrite, AsyncWriteExt, BufReader};
 use tower_service::Service;
@@ -170,8 +172,8 @@ where
                                         jsonrpc: "2.0".to_string(),
                                         id,
                                         result: None,
-                                        error: Some(mcp_core::protocol::ErrorData {
-                                            code: mcp_core::protocol::INTERNAL_ERROR,
+                                        error: Some(mcp_core_fishcode2025::protocol::ErrorData {
+                                            code: mcp_core_fishcode2025::protocol::INTERNAL_ERROR,
                                             message: error_msg,
                                             data: None,
                                         }),
@@ -209,19 +211,19 @@ where
                     // Convert transport error to JSON-RPC error response
                     let error = match e {
                         TransportError::Json(_) | TransportError::InvalidMessage(_) => {
-                            mcp_core::protocol::ErrorData {
-                                code: mcp_core::protocol::PARSE_ERROR,
+                            mcp_core_fishcode2025::protocol::ErrorData {
+                                code: mcp_core_fishcode2025::protocol::PARSE_ERROR,
                                 message: e.to_string(),
                                 data: None,
                             }
                         }
-                        TransportError::Protocol(_) => mcp_core::protocol::ErrorData {
-                            code: mcp_core::protocol::INVALID_REQUEST,
+                        TransportError::Protocol(_) => mcp_core_fishcode2025::protocol::ErrorData {
+                            code: mcp_core_fishcode2025::protocol::INVALID_REQUEST,
                             message: e.to_string(),
                             data: None,
                         },
-                        _ => mcp_core::protocol::ErrorData {
-                            code: mcp_core::protocol::INTERNAL_ERROR,
+                        _ => mcp_core_fishcode2025::protocol::ErrorData {
+                            code: mcp_core_fishcode2025::protocol::INTERNAL_ERROR,
                             message: e.to_string(),
                             data: None,
                         },

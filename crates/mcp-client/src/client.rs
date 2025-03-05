@@ -1,4 +1,4 @@
-use mcp_core::protocol::{
+use mcp_core_fishcode2025::protocol::{
     CallToolResult, GetPromptResult, Implementation, InitializeResult, JsonRpcError,
     JsonRpcMessage, JsonRpcNotification, JsonRpcRequest, JsonRpcResponse, ListPromptsResult,
     ListResourcesResult, ListToolsResult, ReadResourceResult, ServerCapabilities, METHOD_NOT_FOUND,
@@ -8,7 +8,8 @@ use serde_json::Value;
 use std::sync::atomic::{AtomicU64, Ordering};
 use thiserror::Error;
 use tokio::sync::Mutex;
-use tower::{Service, ServiceExt}; // for Service::ready()
+use tower::Service;
+use tower::ServiceExt; // for Service::ready()
 
 pub type BoxError = Box<dyn std::error::Error + Sync + Send>;
 

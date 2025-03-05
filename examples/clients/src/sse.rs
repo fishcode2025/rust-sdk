@@ -1,7 +1,7 @@
 use anyhow::Result;
-use mcp_client::client::{ClientCapabilities, ClientInfo, McpClient, McpClientTrait};
-use mcp_client::transport::{SseTransport, Transport};
-use mcp_client::McpService;
+use mcp_client_fishcode2025::client::{ClientCapabilities, ClientInfo, McpClient, McpClientTrait};
+use mcp_client_fishcode2025::transport::{SseTransport, Transport};
+use mcp_client_fishcode2025::McpService;
 use std::collections::HashMap;
 use std::time::Duration;
 use tracing_subscriber::EnvFilter;
@@ -12,7 +12,7 @@ async fn main() -> Result<()> {
     tracing_subscriber::fmt()
         .with_env_filter(
             EnvFilter::from_default_env()
-                .add_directive("mcp_client=debug".parse().unwrap())
+                .add_directive("mcp_client_fishcode2025=debug".parse().unwrap())
                 .add_directive("eventsource_client=info".parse().unwrap()),
         )
         .init();

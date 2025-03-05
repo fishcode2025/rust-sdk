@@ -1,7 +1,7 @@
 use std::collections::HashMap;
 
 use anyhow::Result;
-use mcp_client::{
+use mcp_client_fishcode2025::{
     ClientCapabilities, ClientInfo, Error as ClientError, McpClient, McpClientTrait, McpService,
     StdioTransport, Transport,
 };
@@ -14,7 +14,7 @@ async fn main() -> Result<(), ClientError> {
     tracing_subscriber::fmt()
         .with_env_filter(
             EnvFilter::from_default_env()
-                .add_directive("mcp_client=debug".parse().unwrap())
+                .add_directive("mcp_client_fishcode2025=debug".parse().unwrap())
                 .add_directive("eventsource_client=debug".parse().unwrap()),
         )
         .init();

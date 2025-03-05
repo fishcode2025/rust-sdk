@@ -3,18 +3,19 @@ members = [
     "crates/*",
     "examples/clients",
     "examples/servers",
-    "examples/macros"
+    "examples/macros",
 ]
 resolver = "2"
 
 [workspace.dependencies]
-mcp-core = { path = "./crates/mcp-core" }
-mcp-macros = { path = "./crates/mcp-macros" }
+mcp-core-fishcode2025 = { path = "./crates/mcp-core" }
+mcp-server-fishcode2025 = { path = "./crates/mcp-server" }
+mcp-client-fishcode2025 = { path = "./crates/mcp-client" }
+mcp-macros-fishcode2025 = { path = "./crates/mcp-macros" }
 
 [workspace.package]
-edition = "2021"
-version = "1.0.7"
-authors = ["Block <ai-oss-tools@block.xyz>"]
+version = "0.1.0"
 license = "MIT"
-repository = "https://github.com/modelcontextprotocol/rust-sdk/"
+edition = "2021"
+repository = "https://github.com/fishcode2025/mcp-rust-sdk"
 description = "Rust SDK for the Model Context Protocol"

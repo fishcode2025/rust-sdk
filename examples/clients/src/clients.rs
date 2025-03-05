@@ -1,4 +1,4 @@
-use mcp_client::{
+use mcp_client_fishcode2025::{
     client::{ClientCapabilities, ClientInfo, McpClient, McpClientTrait},
     transport::{SseTransport, StdioTransport, Transport},
     McpService,
@@ -14,7 +14,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Initialize logging
     tracing_subscriber::fmt()
         .with_env_filter(
-            EnvFilter::from_default_env().add_directive("mcp_client=debug".parse().unwrap()),
+            EnvFilter::from_default_env()
+                .add_directive("mcp_client_fishcode2025=debug".parse().unwrap()),
         )
         .init();
 

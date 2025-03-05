@@ -5,8 +5,8 @@ edition = "2021"
 publish = false
 
 [dependencies]
-mcp-client = { path = "../../crates/mcp-client" }
-mcp-core = { path = "../../crates/mcp-core" }
+mcp-client-fishcode2025 = { path = "../../crates/mcp-client" }
+mcp-core-fishcode2025 = { path = "../../crates/mcp-core" }
 tokio = { version = "1", features = ["full"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"

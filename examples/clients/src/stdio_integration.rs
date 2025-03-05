@@ -1,11 +1,11 @@
-// This example shows how to use the mcp-client crate to interact with a server that has a simple counter tool.
-// The server is started by running `cargo run -p mcp-server` in the root of the mcp-server crate.
+// This example shows how to use the mcp-client-fishcode2025 crate to interact with a server that has a simple counter tool.
+// The server is started by running `cargo run -p mcp-server-fishcode2025` in the root of the mcp-server crate.
 use anyhow::Result;
-use mcp_client::client::{
+use mcp_client_fishcode2025::client::{
     ClientCapabilities, ClientInfo, Error as ClientError, McpClient, McpClientTrait,
 };
-use mcp_client::transport::{StdioTransport, Transport};
-use mcp_client::McpService;
+use mcp_client_fishcode2025::transport::{StdioTransport, Transport};
+use mcp_client_fishcode2025::McpService;
 use std::collections::HashMap;
 use std::time::Duration;
 use tracing_subscriber::EnvFilter;
@@ -16,7 +16,7 @@ async fn main() -> Result<(), ClientError> {
     tracing_subscriber::fmt()
         .with_env_filter(
             EnvFilter::from_default_env()
-                .add_directive("mcp_client=debug".parse().unwrap())
+                .add_directive("mcp_client_fishcode2025=debug".parse().unwrap())
                 .add_directive("eventsource_client=debug".parse().unwrap()),
         )
         .init();
@@ -24,7 +24,7 @@ async fn main() -> Result<(), ClientError> {
     // Create the transport
     let transport = StdioTransport::new(
         "cargo",
-        vec!["run", "-p", "mcp-server"]
+        vec!["run", "-p", "mcp-server-fishcode2025"]
             .into_iter()
             .map(|s| s.to_string())
             .collect(),

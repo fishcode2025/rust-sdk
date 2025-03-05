@@ -6,7 +6,7 @@ use std::{
 
 type PromptFuture = Pin<Box<dyn Future<Output = Result<String, PromptError>> + Send + 'static>>;
 
-use mcp_core::{
+use mcp_core_fishcode2025::{
     content::Content,
     handler::{PromptError, ResourceError, ToolError},
     prompt::{Prompt, PromptMessage, PromptMessageRole},
@@ -16,6 +16,8 @@ use mcp_core::{
         PromptsCapability, ReadResourceResult, ResourcesCapability, ServerCapabilities,
         ToolsCapability,
     },
+    resource::Resource,
+    tool::Tool,
     ResourceContents,
 };
 use serde_json::Value;
@@ -86,13 +88,13 @@ pub trait Router: Send + Sync + 'static {
     // in the protocol, instructions are optional but we make it required
     fn instructions(&self) -> String;
     fn capabilities(&self) -> ServerCapabilities;
-    fn list_tools(&self) -> Vec<mcp_core::tool::Tool>;
+    fn list_tools(&self) -> Vec<Tool>;
     fn call_tool(
         &self,
         tool_name: &str,
         arguments: Value,
     ) -> Pin<Box<dyn Future<Output = Result<Vec<Content>, ToolError>> + Send + 'static>>;
-    fn list_resources(&self) -> Vec<mcp_core::resource::Resource>;
+    fn list_resources(&self) -> Vec<Resource>;
     fn read_resource(
         &self,
         uri: &str,

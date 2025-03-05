@@ -1,3 +1,7 @@
+use mcp_core_fishcode2025::handler::ResourceError;
+use mcp_core_fishcode2025::protocol::{
+    ErrorData, INTERNAL_ERROR, INVALID_PARAMS, INVALID_REQUEST, METHOD_NOT_FOUND,
+};
 use thiserror::Error;
 
 pub type BoxError = Box<dyn std::error::Error + Sync + Send>;
@@ -56,9 +60,8 @@ pub enum RouterError {
     PromptNotFound(String),
 }
 
-impl From<RouterError> for mcp_core::protocol::ErrorData {
+impl From<RouterError> for ErrorData {
     fn from(err: RouterError) -> Self {
-        use mcp_core::protocol::*;
         match err {
             RouterError::MethodNotFound(msg) => ErrorData {
                 code: METHOD_NOT_FOUND,
@@ -94,11 +97,13 @@ impl From<RouterError> for mcp_core::protocol::ErrorData {
     }
 }
 
-impl From<mcp_core::handler::ResourceError> for RouterError {
-    fn from(err: mcp_core::handler::ResourceError) -> Self {
+impl From<ResourceError> for RouterError {
+    fn from(err: ResourceError) -> Self {
         match err {
-            mcp_core::handler::ResourceError::NotFound(msg) => RouterError::ResourceNotFound(msg),
-            _ => RouterError::Internal("Unknown resource error".to_string()),
+            ResourceError::NotFound(msg) => RouterError::ResourceNotFound(msg),
+            ResourceError::ExecutionError(msg) => {
+                RouterError::Internal(format!("Resource execution error: {}", msg))
+            }
         }
     }
 }
