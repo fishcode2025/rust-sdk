@@ -1,3 +1,4 @@
+use mcp_core_fishcode2025 as mcp_core;
 use mcp_core_fishcode2025::handler::{ToolError, ToolHandler};
 use mcp_macros_fishcode2025::tool;
 

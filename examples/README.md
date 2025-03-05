@@ -1,22 +1,22 @@
-# Model Context Protocol Examples
+# Model Context Protocol 示例
 
-This directory contains examples demonstrating how to use the Model Context Protocol (MCP) Rust SDK.
+本目录包含演示如何使用 Model Context Protocol (MCP) Rust SDK 的示例。
 
-## Structure
+## 目录结构
 
-- `clients/`: Examples of MCP clients
-- `servers/`: Examples of MCP servers
-- `macros/`: Examples of MCP macros
+- `clients/`: MCP 客户端示例
+- `servers/`: MCP 服务器示例
+- `macros/`: MCP 宏示例
 
-## Running Client Examples
+## 运行客户端示例
 
-The client examples demonstrate different ways to connect to MCP servers.
+客户端示例演示了连接 MCP 服务器的不同方式。
 
-### Available Examples
+### 可用示例
 
-You can run the examples in two ways:
+您可以通过两种方式运行这些示例：
 
-#### Option 1: From the examples/clients directory
+#### 方式一：从 examples/clients 目录运行
 
 ```bash
 cd examples/clients
@@ -26,7 +26,7 @@ cargo run --example stdio
 cargo run --example stdio_integration
 ```
 
-#### Option 2: From the root directory
+#### 方式二：从根目录运行
 
 ```bash
 cargo run -p mcp-client-examples-fishcode2025 --example clients
@@ -35,50 +35,78 @@ cargo run -p mcp-client-examples-fishcode2025 --example stdio
 cargo run -p mcp-client-examples-fishcode2025 --example stdio_integration
 ```
 
-## Running Server Examples
+## 运行服务器示例
 
-The server examples demonstrate how to implement MCP servers.
+服务器示例演示了如何实现 MCP 服务器。
 
-### Available Examples
+### 可用示例
 
-You can run the server examples in two ways:
+您可以通过两种方式运行服务器示例：
 
-#### Option 1: From the examples/servers directory
+#### 方式一：从 examples/servers 目录运行
 
 ```bash
 cd examples/servers
 cargo run --example counter-server
 ```
 
-#### Option 2: From the root directory
+#### 方式二：从根目录运行
 
 ```bash
 cargo run -p mcp-server-examples-fishcode2025 --example counter-server
 ```
 
-## Running Macros Examples
+## 运行宏示例
 
-The macros examples demonstrate how to use the MCP macros to create tools.
+宏示例演示了如何使用 MCP 宏创建工具。
 
-### Available Examples
+### 可用示例
 
-You can run the macros examples in two ways:
+您可以通过两种方式运行宏示例：
 
-#### Option 1: From the examples/macros directory
+#### 方式一：从 examples/macros 目录运行
 
 ```bash
 cd examples/macros
 cargo run --example calculator
 ```
 
-#### Option 2: From the root directory
+#### 方式二：从根目录运行
 
 ```bash
 cargo run -p mcp-macros-examples-fishcode2025 --example calculator
 ```
 
-## Notes
+## 示例说明
 
-- Some examples may require additional setup or running both client and server components.
-- The server examples use standard I/O for communication, so they can be connected to client examples using stdio transport.
-- For SSE examples, you may need to run a separate SSE server or use a compatible MCP server implementation.
+### 客户端示例
+
+- **clients**: 演示如何创建和使用 MCP 客户端
+- **sse**: 演示如何使用服务器发送事件 (SSE) 传输
+- **stdio**: 演示如何使用标准输入/输出传输
+- **stdio_integration**: 演示如何将 stdio 传输集成到现有应用程序中
+
+### 服务器示例
+
+- **counter-server**: 一个简单的计数器服务器，提供增加和获取计数的功能
+- **axum**: 演示如何将 MCP 服务器集成到 Axum web 框架中
+
+### 宏示例
+
+- **calculator**: 演示如何使用 `#[tool]` 宏创建一个简单的计算器工具
+
+## 注意事项
+
+- 某些示例可能需要额外的设置或同时运行客户端和服务器组件。
+- 服务器示例使用标准 I/O 进行通信，因此可以使用 stdio 传输连接到客户端示例。
+- 对于 SSE 示例，您可能需要运行单独的 SSE 服务器或使用兼容的 MCP 服务器实现。
+- 使用宏示例时，请确保导入 `use mcp_core_fishcode2025 as mcp_core;`，以避免宏展开错误。
+
+## 依赖关系
+
+所有示例都依赖于以下包：
+
+- `mcp-core-fishcode2025`: 核心数据结构和协议定义
+- `mcp-client-fishcode2025`: 客户端实现
+- `mcp-server-fishcode2025`: 服务器实现
+- `mcp-macros-fishcode2025`: 宏实现
