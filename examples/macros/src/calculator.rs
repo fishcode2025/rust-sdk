@@ -1,5 +1,5 @@
-use mcp_core::handler::{ToolError, ToolHandler};
-use mcp_macros::tool;
+use mcp_core_fishcode2025::handler::{ToolError, ToolHandler};
+use mcp_macros_fishcode2025::tool;
 
 #[tokio::main]
 async fn main() -> std::result::Result<(), Box<dyn std::error::Error>> {

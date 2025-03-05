@@ -29,10 +29,10 @@ cargo run --example stdio_integration
 #### Option 2: From the root directory
 
 ```bash
-cargo run -p mcp-client-examples --example clients
-cargo run -p mcp-client-examples --example sse
-cargo run -p mcp-client-examples --example stdio
-cargo run -p mcp-client-examples --example stdio_integration
+cargo run -p mcp-client-examples-fishcode2025 --example clients
+cargo run -p mcp-client-examples-fishcode2025 --example sse
+cargo run -p mcp-client-examples-fishcode2025 --example stdio
+cargo run -p mcp-client-examples-fishcode2025 --example stdio_integration
 ```
 
 ## Running Server Examples
@@ -53,7 +53,7 @@ cargo run --example counter-server
 #### Option 2: From the root directory
 
 ```bash
-cargo run -p mcp-server-examples --example counter-server
+cargo run -p mcp-server-examples-fishcode2025 --example counter-server
 ```
 
 ## Running Macros Examples
@@ -74,7 +74,7 @@ cargo run --example calculator
 #### Option 2: From the root directory
 
 ```bash
-cargo run -p mcp-macros-examples --example calculator
+cargo run -p mcp-macros-examples-fishcode2025 --example calculator
 ```
 
 ## Notes

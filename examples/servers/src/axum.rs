@@ -7,13 +7,13 @@ use axum::{
     Router,
 };
 use futures::{stream::Stream, StreamExt, TryStreamExt};
-use mcp_server::{ByteTransport, Server};
+use mcp_server_fishcode2025::{ByteTransport, Server};
 use std::collections::HashMap;
 use tokio_util::codec::FramedRead;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 use anyhow::Result;
-use mcp_server::router::RouterService;
+use mcp_server_fishcode2025::router::RouterService;
 use std::sync::Arc;
 use tokio::{
     io::{self, AsyncWriteExt},

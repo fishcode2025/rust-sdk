@@ -1,6 +1,6 @@
 use anyhow::Result;
-use mcp_server::router::RouterService;
-use mcp_server::{ByteTransport, Server};
+use mcp_server_fishcode2025::router::RouterService;
+use mcp_server_fishcode2025::{ByteTransport, Server};
 use tokio::io::{stdin, stdout};
 use tracing_appender::rolling::{RollingFileAppender, Rotation};
 use tracing_subscriber::{self, EnvFilter};

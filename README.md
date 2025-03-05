@@ -2,8 +2,8 @@
 
 这是Model Context Protocol (MCP)的Rust实现，本项目fork自[官方MCP Rust SDK](https://github.com/modelcontextprotocol/rust-sdk)。
 
-[![Crates.io](https://img.shields.io/crates/v/mcp-core.svg)](https://crates.io/crates/mcp-core)
-[![Documentation](https://docs.rs/mcp-core/badge.svg)](https://docs.rs/mcp-core)
+[![Crates.io](https://img.shields.io/crates/v/mcp-core-fishcode2025.svg)](https://crates.io/crates/mcp-core-fishcode2025)
+[![Documentation](https://docs.rs/mcp-core-fishcode2025/badge.svg)](https://docs.rs/mcp-core-fishcode2025)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 项目简介
@@ -12,10 +12,10 @@ Model Context Protocol (MCP) 是一个开放协议，旨在实现LLM应用程序
 
 本SDK提供了MCP协议的Rust实现，包括：
 
-- **mcp-core**: 核心数据结构和协议定义
-- **mcp-server**: 服务器端实现，用于创建MCP服务
-- **mcp-client**: 客户端实现，用于连接MCP服务
-- **mcp-macros**: 用于简化MCP开发的宏
+- **mcp-core-fishcode2025**: 核心数据结构和协议定义
+- **mcp-server-fishcode2025**: 服务器端实现，用于创建MCP服务
+- **mcp-client-fishcode2025**: 客户端实现，用于连接MCP服务
+- **mcp-macros-fishcode2025**: 用于简化MCP开发的宏
 
 ## 架构概述
 
@@ -47,26 +47,26 @@ MCP协议支持三种主要功能：
 ```toml
 [dependencies]
 # 核心库
-mcp-core = "1.0"
+mcp-core-fishcode2025 = "1.0"
 
 # 如果需要创建MCP服务器
-mcp-server = "1.0"
+mcp-server-fishcode2025 = "1.0"
 
 # 如果需要创建MCP客户端
-mcp-client = "1.0"
+mcp-client-fishcode2025 = "1.0"
 
 # 可选的宏支持
-mcp-macros = "1.0"
+mcp-macros-fishcode2025 = "1.0"
 ```
 
 或者，您可以直接从GitHub克隆并使用本地路径：
 
 ```toml
 [dependencies]
-mcp-core = { path = "./crates/mcp-core" }
-mcp-server = { path = "./crates/mcp-server" }
-mcp-client = { path = "./crates/mcp-client" }
-mcp-macros = { path = "./crates/mcp-macros" }
+mcp-core-fishcode2025 = { path = "./crates/mcp-core" }
+mcp-server-fishcode2025 = { path = "./crates/mcp-server" }
+mcp-client-fishcode2025 = { path = "./crates/mcp-client" }
+mcp-macros-fishcode2025 = { path = "./crates/mcp-macros" }
 ```
 
 ## 使用指南
@@ -76,8 +76,8 @@ mcp-macros = { path = "./crates/mcp-macros" }
 以下是创建简单MCP服务器的示例：
 
 ```rust
-use mcp_server::router::RouterService;
-use mcp_server::{ByteTransport, Server};
+use mcp_server_fishcode2025::router::RouterService;
+use mcp_server_fishcode2025::{ByteTransport, Server};
 use tokio::io::{stdin, stdout};
 
 #[tokio::main]
@@ -98,8 +98,8 @@ async fn main() -> anyhow::Result<()> {
 以下是创建MCP客户端并调用工具的示例：
 
 ```rust
-use mcp_client::{McpClient, StdioTransport};
-use mcp_core::protocol::CallToolParams;
+use mcp_client_fishcode2025::{McpClient, StdioTransport};
+use mcp_core_fishcode2025::protocol::CallToolParams;
 use serde_json::json;
 
 #[tokio::main]
@@ -127,8 +127,8 @@ async fn main() -> anyhow::Result<()> {
 要创建自定义MCP服务器，您需要实现`Router` trait：
 
 ```rust
-use mcp_core::{Resource, Tool, ToolError};
-use mcp_server::Router;
+use mcp_core_fishcode2025::{Resource, Tool, ToolError};
+use mcp_server_fishcode2025::Router;
 use serde_json::Value;
 
 struct MyRouter {
@@ -218,11 +218,11 @@ cargo doc --open
 
 主要模块包括：
 
-- **mcp_core::protocol**: 协议消息定义
-- **mcp_core::resource**: 资源相关数据结构
-- **mcp_core::tool**: 工具相关数据结构
-- **mcp_server::router**: 服务器路由功能
-- **mcp_client::client**: 客户端实现
+- **mcp_core_fishcode2025::protocol**: 协议消息定义
+- **mcp_core_fishcode2025::resource**: 资源相关数据结构
+- **mcp_core_fishcode2025::tool**: 工具相关数据结构
+- **mcp_server_fishcode2025::router**: 服务器路由功能
+- **mcp_client_fishcode2025::client**: 客户端实现
 
 ## 贡献指南
 

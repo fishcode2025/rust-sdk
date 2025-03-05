@@ -1,12 +1,12 @@
 use std::{future::Future, pin::Pin, sync::Arc};
 
-use mcp_core::{
+use mcp_core_fishcode2025::{
     handler::{PromptError, ResourceError},
     prompt::{Prompt, PromptArgument},
     protocol::ServerCapabilities,
     Content, Resource, Tool, ToolError,
 };
-use mcp_server::router::CapabilitiesBuilder;
+use mcp_server_fishcode2025::router::CapabilitiesBuilder;
 use serde_json::Value;
 use tokio::sync::Mutex;
 
@@ -44,7 +44,7 @@ impl CounterRouter {
     }
 }
 
-impl mcp_server::Router for CounterRouter {
+impl mcp_server_fishcode2025::router::Router for CounterRouter {
     fn name(&self) -> String {
         "counter".to_string()
     }
